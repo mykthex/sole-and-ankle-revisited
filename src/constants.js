@@ -16,3 +16,19 @@ export const WEIGHTS = {
   medium: 600,
   bold: 800,
 };
+
+
+export const BREAKPOINTS = {
+  phone: {
+    min: 0,
+    max: 37.5,
+  },
+  tablet: {
+    min: 37.6,
+    max: 59.375,
+  },
+  desktop: {
+    min: 59.376,
+    max: 81.25,
+  },
+};

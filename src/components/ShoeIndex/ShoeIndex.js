@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
+import { BREAKPOINTS, WEIGHTS } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
@@ -15,14 +15,16 @@ const ShoeIndex = ({ sortId, setSortId }) => {
       <MainColumn>
         <Header>
           <Title>Running</Title>
-          <Select
-            label="Sort"
-            value={sortId}
-            onChange={(ev) => setSortId(ev.target.value)}
-          >
-            <option value="newest">Newest Releases</option>
-            <option value="price">Price</option>
-          </Select>
+          <SelectWrapper>
+            <Select
+              label="Sort"
+              value={sortId}
+              onChange={(ev) => setSortId(ev.target.value)}
+            >
+              <option value="newest">Newest Releases</option>
+              <option value="price">Price</option>
+            </Select>
+          </SelectWrapper>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
@@ -50,11 +52,24 @@ const Wrapper = styled.div`
 `;
 
 const LeftColumn = styled.div`
+  display: none;
   flex-basis: 248px;
+
+  @media (min-width: ${BREAKPOINTS.desktop.min}rem) {
+    display: block;
+  }
 `;
 
 const MainColumn = styled.div`
   flex: 1;
+`;
+
+const SelectWrapper = styled.div`
+  display: none;
+
+  @media (min-width: ${BREAKPOINTS.desktop.min}rem) {
+    display: block;
+  }
 `;
 
 const Header = styled.header`
